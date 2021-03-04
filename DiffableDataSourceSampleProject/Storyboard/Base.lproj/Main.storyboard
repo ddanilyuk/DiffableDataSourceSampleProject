@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18121" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bdY-qh-ZPB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18121" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PaT-NL-UO6">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18092"/>
@@ -12,13 +12,13 @@
         <!--Users-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="Tab1ViewController" customModule="DiffableDataSourceSampleProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="DiffableDataSourceSampleProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="30" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="BfI-t2-OEd">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -26,7 +26,7 @@
                         <constraints>
                             <constraint firstItem="BfI-t2-OEd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="C2o-Gi-Nnp"/>
                             <constraint firstItem="BfI-t2-OEd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DSs-hj-TNy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BfI-t2-OEd" secondAttribute="bottom" id="FYb-3u-qaq"/>
+                            <constraint firstAttribute="bottom" secondItem="BfI-t2-OEd" secondAttribute="bottom" id="FYb-3u-qaq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BfI-t2-OEd" secondAttribute="trailing" id="zMT-Fi-IzM"/>
                         </constraints>
                     </view>
@@ -100,101 +100,9 @@
             </objects>
             <point key="canvasLocation" x="1026.0869565217392" y="77.678571428571431"/>
         </scene>
-        <!--Grouped users-->
-        <scene sceneID="LSm-iC-npu">
-            <objects>
-                <viewController id="5I3-oG-Vv3" customClass="Tab2ViewController" customModule="DiffableDataSourceSampleProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1ET-76-sWs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="TSe-gU-DLf">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="KR4-2N-68U"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="KR4-2N-68U" firstAttribute="bottom" secondItem="TSe-gU-DLf" secondAttribute="bottom" id="0CL-30-qaW"/>
-                            <constraint firstItem="TSe-gU-DLf" firstAttribute="top" secondItem="KR4-2N-68U" secondAttribute="top" id="YhA-9T-R8w"/>
-                            <constraint firstItem="TSe-gU-DLf" firstAttribute="leading" secondItem="KR4-2N-68U" secondAttribute="leading" id="Z5g-Dj-1GN"/>
-                            <constraint firstItem="KR4-2N-68U" firstAttribute="trailing" secondItem="TSe-gU-DLf" secondAttribute="trailing" id="bgJ-mv-chu"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Grouped users" id="a9I-5G-Mi9">
-                        <rightBarButtonItems>
-                            <barButtonItem style="plain" id="fif-W1-G6g">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zIs-fC-caD">
-                                    <rect key="frame" x="302" y="7" width="92" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Age"/>
-                                    <connections>
-                                        <action selector="groupByAgeAction:" destination="5I3-oG-Vv3" eventType="touchUpInside" id="VrC-Nq-z4I"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                            <barButtonItem style="plain" id="nNz-Nu-Ujs">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="xmP-nW-3ic">
-                                    <rect key="frame" x="202" y="7" width="92" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Name"/>
-                                    <connections>
-                                        <action selector="groupByNamesAction:" destination="5I3-oG-Vv3" eventType="touchUpInside" id="MQR-P8-S4Q"/>
-                                    </connections>
-                                </button>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="TSe-gU-DLf" id="dhk-AZ-QZh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ya-Cs-ML4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1934.7826086956522" y="916.74107142857133"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="CQB-NB-hAX">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="bdY-qh-ZPB" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cYR-Nu-et8">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="PaT-NL-UO6" kind="relationship" relationship="viewControllers" id="dXe-Me-6cx"/>
-                        <segue destination="5UG-2P-syo" kind="relationship" relationship="viewControllers" id="d8n-Iy-3NP"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wpq-wo-flW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-54" y="461"/>
-        </scene>
-        <!--2-->
-        <scene sceneID="CtN-jI-yu9">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5UG-2P-syo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="2" image="2.square" catalog="system" id="jP7-zT-DIu"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="U45-po-rNr">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="5I3-oG-Vv3" kind="relationship" relationship="rootViewController" id="Fby-Zl-Lsy"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HFu-LP-Hz9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1024.6376811594205" y="916.74107142857133"/>
-        </scene>
     </scenes>
     <resources>
         <image name="1.square" catalog="system" width="128" height="114"/>
-        <image name="2.square" catalog="system" width="128" height="114"/>
         <image name="line.horizontal.3.decrease.circle" catalog="system" width="128" height="121"/>
         <image name="person.2" catalog="system" width="128" height="81"/>
         <image name="shuffle" catalog="system" width="128" height="93"/>

@@ -12,6 +12,11 @@ struct User: Hashable {
     var name: String
     var age: Int
     let uuid = UUID()
+}
+
+// MARK: - generateUsers
+
+extension User {
     
     static func generateUsers(count: Int) -> [User] {
         

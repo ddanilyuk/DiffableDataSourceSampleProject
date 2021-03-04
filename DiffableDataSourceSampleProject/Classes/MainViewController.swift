@@ -1,5 +1,5 @@
 //
-//  Tab1ViewController.swift
+//  MainViewController.swift
 //  DiffableDataSourceSampleProject
 //
 //  Created by Denys Danyliuk on 04.03.2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class Tab1ViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     enum Section: String {
         case all = "All"
@@ -149,7 +149,7 @@ final class Tab1ViewController: UIViewController {
 
 // MARK: - UITableViewDelegate
 
-extension Tab1ViewController: UITableViewDelegate {
+extension MainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -174,7 +174,7 @@ extension Tab1ViewController: UITableViewDelegate {
     }
 }
 
-extension Tab1ViewController: UISearchResultsUpdating {
+extension MainViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         

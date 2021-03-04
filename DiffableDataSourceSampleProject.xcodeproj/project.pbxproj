@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5FF4AF2B25F15F510072D3AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF4AF2A25F15F510072D3AE /* AppDelegate.swift */; };
-		5FF4AF2F25F15F510072D3AE /* Tab1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF4AF2E25F15F510072D3AE /* Tab1ViewController.swift */; };
+		5FF4AF2F25F15F510072D3AE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF4AF2E25F15F510072D3AE /* MainViewController.swift */; };
 		5FF4AF3225F15F510072D3AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF4AF3025F15F510072D3AE /* Main.storyboard */; };
 		5FF4AF3425F15F530072D3AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF4AF3325F15F530072D3AE /* Assets.xcassets */; };
 		5FF4AF3725F15F530072D3AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FF4AF3525F15F530072D3AE /* LaunchScreen.storyboard */; };
@@ -16,13 +16,12 @@
 		5FF4AF4A25F1605D0072D3AE /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF4AF4825F1605D0072D3AE /* UserTableViewCell.swift */; };
 		5FF4AF4B25F1605D0072D3AE /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FF4AF4925F1605D0072D3AE /* UserTableViewCell.xib */; };
 		5FF4AF4D25F16BB90072D3AE /* TableDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF4AF4C25F16BB90072D3AE /* TableDiffableDataSource.swift */; };
-		5FF4AF4F25F172380072D3AE /* Tab2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF4AF4E25F172380072D3AE /* Tab2ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5FF4AF2725F15F510072D3AE /* DiffableDataSourceSampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiffableDataSourceSampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF4AF2A25F15F510072D3AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5FF4AF2E25F15F510072D3AE /* Tab1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab1ViewController.swift; sourceTree = "<group>"; };
+		5FF4AF2E25F15F510072D3AE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5FF4AF3125F15F510072D3AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5FF4AF3325F15F530072D3AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FF4AF3625F15F530072D3AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -31,7 +30,6 @@
 		5FF4AF4825F1605D0072D3AE /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		5FF4AF4925F1605D0072D3AE /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		5FF4AF4C25F16BB90072D3AE /* TableDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDiffableDataSource.swift; sourceTree = "<group>"; };
-		5FF4AF4E25F172380072D3AE /* Tab2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab2ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,12 +64,9 @@
 			children = (
 				5FF4AF4425F160360072D3AE /* App */,
 				5FF4AF3E25F15FED0072D3AE /* Models */,
-				5FF4AF4125F160140072D3AE /* Tabs */,
-				5FF4AF3025F15F510072D3AE /* Main.storyboard */,
-				5FF4AF4C25F16BB90072D3AE /* TableDiffableDataSource.swift */,
-				5FF4AF3325F15F530072D3AE /* Assets.xcassets */,
-				5FF4AF3525F15F530072D3AE /* LaunchScreen.storyboard */,
-				5FF4AF3825F15F530072D3AE /* Info.plist */,
+				5FF4AF4225F160180072D3AE /* Classes */,
+				5FF4AF5125F1A9300072D3AE /* Storyboard */,
+				5FF4AF5025F1A92A0072D3AE /* Resources */,
 			);
 			path = DiffableDataSourceSampleProject;
 			sourceTree = "<group>";
@@ -84,30 +79,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		5FF4AF4125F160140072D3AE /* Tabs */ = {
+		5FF4AF4225F160180072D3AE /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				5FF4AF4225F160180072D3AE /* Tab1 */,
-				5FF4AF4325F1601D0072D3AE /* Tab2 */,
-			);
-			path = Tabs;
-			sourceTree = "<group>";
-		};
-		5FF4AF4225F160180072D3AE /* Tab1 */ = {
-			isa = PBXGroup;
-			children = (
-				5FF4AF2E25F15F510072D3AE /* Tab1ViewController.swift */,
+				5FF4AF4C25F16BB90072D3AE /* TableDiffableDataSource.swift */,
+				5FF4AF2E25F15F510072D3AE /* MainViewController.swift */,
 				5FF4AF4525F160450072D3AE /* Views */,
 			);
-			path = Tab1;
-			sourceTree = "<group>";
-		};
-		5FF4AF4325F1601D0072D3AE /* Tab2 */ = {
-			isa = PBXGroup;
-			children = (
-				5FF4AF4E25F172380072D3AE /* Tab2ViewController.swift */,
-			);
-			path = Tab2;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		5FF4AF4425F160360072D3AE /* App */ = {
@@ -125,6 +104,24 @@
 				5FF4AF4925F1605D0072D3AE /* UserTableViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5FF4AF5025F1A92A0072D3AE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5FF4AF3325F15F530072D3AE /* Assets.xcassets */,
+				5FF4AF3825F15F530072D3AE /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5FF4AF5125F1A9300072D3AE /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				5FF4AF3025F15F510072D3AE /* Main.storyboard */,
+				5FF4AF3525F15F530072D3AE /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,11 +196,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FF4AF4A25F1605D0072D3AE /* UserTableViewCell.swift in Sources */,
-				5FF4AF2F25F15F510072D3AE /* Tab1ViewController.swift in Sources */,
+				5FF4AF2F25F15F510072D3AE /* MainViewController.swift in Sources */,
 				5FF4AF4D25F16BB90072D3AE /* TableDiffableDataSource.swift in Sources */,
 				5FF4AF2B25F15F510072D3AE /* AppDelegate.swift in Sources */,
 				5FF4AF4025F15FF80072D3AE /* User.swift in Sources */,
-				5FF4AF4F25F172380072D3AE /* Tab2ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +348,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M92VXVU7J9;
-				INFOPLIST_FILE = DiffableDataSourceSampleProject/Info.plist;
+				INFOPLIST_FILE = DiffableDataSourceSampleProject/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -371,7 +367,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M92VXVU7J9;
-				INFOPLIST_FILE = DiffableDataSourceSampleProject/Info.plist;
+				INFOPLIST_FILE = DiffableDataSourceSampleProject/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
