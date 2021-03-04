@@ -7,16 +7,21 @@
 
 import UIKit
 
-final class Tab1ViewController: UIViewController, UITableViewDelegate {
+final class Tab1ViewController: UIViewController {
     
     enum Section: String {
-        case all = "Main"
-        case under18 = "Under 18"
-        case from18to30 = "18...30"
-        case from30to60 = "30...60"
-        case above60 = "More than 60"
+        case all = "All"
+        case under18 = "<18"
+        case from18to30 = "18..<30"
+        case from30to60 = "30..<60"
+        case above60 = ">=60"
     }
-
+    
+    enum State {
+        case plain
+        case grouped
+    }
+    
     // MARK: - Typealiases
     
     typealias UserDataSource = TableDiffableDataSource<Section, User>
@@ -30,9 +35,11 @@ final class Tab1ViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var groupButton: UIButton!
     
     // MARK: - Private properties
-
+    
+    private let searchController = UISearchController(searchResultsController: nil)
     private var dataSoure: UserDataSource?
     private var users: [User] = []
+    private var state: State = .plain
     
     // MARK: - Lifecycle
     
@@ -40,6 +47,7 @@ final class Tab1ViewController: UIViewController, UITableViewDelegate {
         super.viewDidLoad()
         
         setupTableView()
+        setupSearch()
         
         users = User.generateUsers(count: 50)
         applySnapshot(with: users)
@@ -47,6 +55,11 @@ final class Tab1ViewController: UIViewController, UITableViewDelegate {
     
     private func setupSearch() {
         
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.placeholder = "Search users"
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
     }
     
     private func setupTableView() {
@@ -83,6 +96,61 @@ final class Tab1ViewController: UIViewController, UITableViewDelegate {
         dataSoure?.apply(snapshot, animatingDifferences: true)
     }
     
+    func applyGrroupedSnapshot(users: [User]) {
+        
+        let usersLessThan18 = users.filter { $0.age < 18 }
+        let users18to30 = users.filter { $0.age >= 18 && $0.age < 30 }
+        let users30to60 = users.filter { $0.age >= 30 && $0.age < 60 }
+        let usersMoreThan60 = users.filter { $0.age >= 60 }
+        
+        var snapshot = UserSnapshot()
+        
+        snapshot.appendSections([.under18, .from18to30, .from30to60, .above60])
+        snapshot.appendItems(usersLessThan18, toSection: .under18)
+        snapshot.appendItems(users18to30, toSection: .from18to30)
+        snapshot.appendItems(users30to60, toSection: .from30to60)
+        snapshot.appendItems(usersMoreThan60, toSection: .above60)
+        
+        dataSoure?.apply(snapshot)
+    }
+    
+    private func applyNeededSnapshot(with users: [User]) {
+        
+        switch state {
+        case .plain:
+            applySnapshot(with: users)
+        default:
+            applyGrroupedSnapshot(users: users)
+        }
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func shuffleAction(_ sender: UIButton) {
+        
+        state = .plain
+        users.shuffle()
+        applySnapshot(with: users)
+    }
+    
+    @IBAction func filterAction(_ sender: UIButton) {
+        
+        state = .plain
+        users.sort { $0.age < $1.age }
+        applySnapshot(with: users)
+    }
+    
+    @IBAction func groupAction(_ sender: UIButton) {
+        
+        state = .grouped
+        applyGrroupedSnapshot(users: users)
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension Tab1ViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard let item = dataSoure?.itemIdentifier(for: indexPath) else {
@@ -95,7 +163,6 @@ final class Tab1ViewController: UIViewController, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let sectionOb = dataSoure?.snapshot().sectionIdentifiers[section]
-        print("Section: \(sectionOb?.rawValue) \(section)")
         let label = UILabel()
         label.heightAnchor.constraint(equalToConstant: 30).isActive = true
         label.text = sectionOb?.rawValue
@@ -105,38 +172,20 @@ final class Tab1ViewController: UIViewController, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
     }
-    
-    func groupUsers() {
-        
-        let usersLessThan18 = users.filter { $0.age < 18 }
-        let users18to30 = users.filter { $0.age >= 18 && $0.age < 30 }
-        let users30to60 = users.filter { $0.age >= 30 && $0.age < 60 }
-        let usersMoreThan60 = users.filter { $0.age >= 60 }
+}
 
-        var snapshot = UserSnapshot()
-        
-        snapshot.appendSections([.under18, .from18to30, .from30to60, .above60])
-        snapshot.appendItems(usersLessThan18, toSection: .under18)
-        snapshot.appendItems(users18to30, toSection: .from18to30)
-        snapshot.appendItems(users30to60, toSection: .from30to60)
-        snapshot.appendItems(usersMoreThan60, toSection: .above60)
-
-        dataSoure?.apply(snapshot)
-    }
+extension Tab1ViewController: UISearchResultsUpdating {
     
-    @IBAction func shuffleAction(_ sender: UIButton) {
+    func updateSearchResults(for searchController: UISearchController) {
         
-        users.shuffle()
-        applySnapshot(with: users)
-    }
-    
-    @IBAction func filterAction(_ sender: UIButton) {
+        guard let searchText = searchController.searchBar.text,
+              !searchText.isEmpty else {
+            
+            applyNeededSnapshot(with: users)
+            return
+        }
         
-        users.sort { $0.age < $1.age }
-        applySnapshot(with: users)
-    }
-    
-    @IBAction func groupAction(_ sender: UIButton) {
-        groupUsers()
+        let filteredUsers = users.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+        applyNeededSnapshot(with: filteredUsers)
     }
 }
