@@ -96,7 +96,7 @@ final class MainViewController: UIViewController {
         dataSoure?.apply(snapshot, animatingDifferences: true)
     }
     
-    func applyGrroupedSnapshot(users: [User]) {
+    func applyGroupedSnapshot(users: [User]) {
         
         let usersUnder18 = users.filter { $0.age < 18 }
         let usersFrom18to30 = users.filter { $0.age >= 18 && $0.age < 30 }
@@ -120,7 +120,7 @@ final class MainViewController: UIViewController {
         case .plain:
             applySnapshot(with: users)
         case .grouped:
-            applyGrroupedSnapshot(users: users)
+            applyGroupedSnapshot(users: users)
         }
     }
     
@@ -143,7 +143,7 @@ final class MainViewController: UIViewController {
     @IBAction func groupAction(_ sender: UIButton) {
         
         state = .grouped
-        applyGrroupedSnapshot(users: users)
+        applyGroupedSnapshot(users: users)
     }
 }
 
