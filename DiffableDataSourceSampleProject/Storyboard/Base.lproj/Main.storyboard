@@ -61,19 +61,19 @@
                                     <rect key="frame" x="298" y="0.0" width="44" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal">
-                                        <imageReference key="image" image="line.horizontal.3.decrease.circle" catalog="system" symbolScale="large"/>
+                                        <imageReference key="image" image="arrow.up.arrow.down" catalog="system" symbolScale="large"/>
                                     </state>
                                     <connections>
-                                        <action selector="filterAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cfT-KN-oDQ"/>
+                                        <action selector="sortAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cfT-KN-oDQ"/>
                                     </connections>
                                 </button>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="filterButton" destination="vJx-ZL-wgz" id="p04-Jx-HZ1"/>
                         <outlet property="groupButton" destination="AuC-pF-TbS" id="hIA-Tb-n8e"/>
                         <outlet property="shuffleButton" destination="pB8-zh-dWi" id="bcL-qN-TiC"/>
+                        <outlet property="sortButton" destination="vJx-ZL-wgz" id="p04-Jx-HZ1"/>
                         <outlet property="tableView" destination="BfI-t2-OEd" id="RYV-9I-Eqn"/>
                     </connections>
                 </viewController>
@@ -103,7 +103,7 @@
     </scenes>
     <resources>
         <image name="1.square" catalog="system" width="128" height="114"/>
-        <image name="line.horizontal.3.decrease.circle" catalog="system" width="128" height="121"/>
+        <image name="arrow.up.arrow.down" catalog="system" width="128" height="98"/>
         <image name="person.2" catalog="system" width="128" height="81"/>
         <image name="shuffle" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">

@@ -31,7 +31,7 @@ final class MainViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var shuffleButton: UIButton!
-    @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var sortButton: UIButton!
     @IBOutlet weak var groupButton: UIButton!
     
     // MARK: - Private properties
@@ -133,7 +133,7 @@ final class MainViewController: UIViewController {
         applySnapshot(with: users)
     }
     
-    @IBAction func filterAction(_ sender: UIButton) {
+    @IBAction func sortAction(_ sender: UIButton) {
         
         state = .plain
         users.sort { $0.age < $1.age }
