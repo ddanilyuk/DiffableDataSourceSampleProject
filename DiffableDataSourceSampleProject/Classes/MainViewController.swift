@@ -98,18 +98,18 @@ final class MainViewController: UIViewController {
     
     func applyGrroupedSnapshot(users: [User]) {
         
-        let usersLessThan18 = users.filter { $0.age < 18 }
-        let users18to30 = users.filter { $0.age >= 18 && $0.age < 30 }
-        let users30to60 = users.filter { $0.age >= 30 && $0.age < 60 }
-        let usersMoreThan60 = users.filter { $0.age >= 60 }
+        let usersUnder18 = users.filter { $0.age < 18 }
+        let usersFrom18to30 = users.filter { $0.age >= 18 && $0.age < 30 }
+        let usersFrom30to60 = users.filter { $0.age >= 30 && $0.age < 60 }
+        let usersAbove60 = users.filter { $0.age >= 60 }
         
         var snapshot = UserSnapshot()
         
         snapshot.appendSections([.under18, .from18to30, .from30to60, .above60])
-        snapshot.appendItems(usersLessThan18, toSection: .under18)
-        snapshot.appendItems(users18to30, toSection: .from18to30)
-        snapshot.appendItems(users30to60, toSection: .from30to60)
-        snapshot.appendItems(usersMoreThan60, toSection: .above60)
+        snapshot.appendItems(usersUnder18, toSection: .under18)
+        snapshot.appendItems(usersFrom18to30, toSection: .from18to30)
+        snapshot.appendItems(usersFrom30to60, toSection: .from30to60)
+        snapshot.appendItems(usersAbove60, toSection: .above60)
         
         dataSoure?.apply(snapshot)
     }
@@ -119,7 +119,7 @@ final class MainViewController: UIViewController {
         switch state {
         case .plain:
             applySnapshot(with: users)
-        default:
+        case .grouped:
             applyGrroupedSnapshot(users: users)
         }
     }
